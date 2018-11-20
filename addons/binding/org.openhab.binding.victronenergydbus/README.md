@@ -1,6 +1,6 @@
 # <bindingName> Binding
 
-_This binding is for monitoring MPPT Solarcharger from Victron Energy_
+This binding is for monitoring MPPT Solarcharger from Victron Energy
 
 ## Supported Things
 
@@ -8,16 +8,16 @@ _This binding is for monitoring MPPT Solarcharger from Victron Energy_
 
 ## Discovery
 
-_Auto-Discovery has not implemented yet._
+Auto-Discovery has not implemented yet.
 
 
 ## Thing Configuration
 
-_You can configure a Thing via PaperUi._
+You can configure a Thing via PaperUi.
 
 ## Channels
 
-_Many :)_
+Many :)
 
 ## Full Example
 
@@ -25,4 +25,4 @@ _ToDo_
 
 ## Example Installation in my Camper
 
-_I'm using this binding in my CamperVan Solar Installation which I described [here](http://thejollyjumper.de/2018/10/18/elektrik/)_
+I'm using this binding in my CamperVan Solar Installation which I described [here](http://thejollyjumper.de/2018/10/18/elektrik/)
