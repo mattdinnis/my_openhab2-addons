@@ -15,42 +15,47 @@ Auto-Discovery has not implemented yet.
 
 You can configure a Thing (VictronEnergyDBus SolarCharger - `sc`) via PaperUi.
 
+| Configuration Parameter | Required | Default | Description                                         |
+|-------------------------|----------|---------|-----------------------------------------------------|
+| port                    | X        | ttyUSB0     | The USB-Port to which the sc is connected to   |
+
 ## Channels
 
-| Channel | Item Type | Description | |--------|------|------|
-| state | Number | Actual State of your Device as Number |
-| stateStr | String | Actual State of your Device as String |
-| DcV | Number | Solarcharger Battery Voltage |
-| DcI | Number | Solarcharger Current to Battery |
-| PvV | Number | Photovoltaics Voltage |
-| PvI | Number | Photovoltaics Current |
-| YP | Number | Yield Power in W |
-| YU | Number | Yield User in KWh |
-| YS | Number | Yield System in KWh |
-| YT | Number | Yield Today in KWh |
-| MPT | Number | Maximum Power Today in W |
-| TIFT | Number | Time in Float Today in Min |
-| TIAT | Number | Time in Absorption Today in Min |
-| TIBT | Number | Time in Bulk Today in Min |
-| MPVT | Number | Maximum Photovoltaik Voltage Today in Volt |
-| MBCT | Number | Maximum Battery Current Today in Ampere |
-| MinBVT | Number | Minimum Battery Voltage Today in Volt |
-| MaxBVT | Number | Maximum Battery Voltage Today in Volt |
-| YY | Number | Yield Yesterday in KWh |
-| MPY | Number | Maximum Power Yesterday in W |
-| TIFY | Number | Time in Float Yesterday in Min |
-| TIAY | Number | Time in Absorption Yesterday in Min |
-| TIBY | Number | Time in Bulk Yesterday in Min |
-| MPVY | Number | Maximum Photovoltaik Voltage Yesterday in Volt |
-| MBCY | Number | Maximum Battery Current Yesterday in Ampere |
-| MinBVY | Number | Minimum Battery Voltage Yesterday in Volt |
-| MaxBVY | Number | Maximum Battery Voltage Yesterday in Volt |
-| Serial | String | The Serial of your Device |
-| FwV | Number | Firmware Version |
-| PId | Number | Product Id |
-| DI | Number | Device Instance |
-| Pn | String | Product Name |
-| Err | Number | Error Code as Number |
+| Channel  | Item Type | Description                                    |
+|----------|-----------|------------------------------------------------|
+| state    | Number    | Actual State of your Device as Number          |
+| stateStr | String    | Actual State of your Device as String          |
+| DcV      | Number    | Solarcharger Battery Voltage                   |
+| DcI      | Number    | Solarcharger Current to Battery                |
+| PvV      | Number    | Photovoltaics Voltage                          |
+| PvI      | Number    | Photovoltaics Current                          |
+| YP       | Number    | Yield Power in W                               |
+| YU       | Number    | Yield User in KWh                              |
+| YS       | Number    | Yield System in KWh                            |
+| YT       | Number    | Yield Today in KWh                             |
+| MPT      | Number    | Maximum Power Today in W                       |
+| TIFT     | Number    | Time in Float Today in Min                     |
+| TIAT     | Number    | Time in Absorption Today in Min                |
+| TIBT     | Number    | Time in Bulk Today in Min                      |
+| MPVT     | Number    | Maximum Photovoltaik Voltage Today in Volt     |
+| MBCT     | Number    | Maximum Battery Current Today in Ampere        |
+| MinBVT   | Number    | Minimum Battery Voltage Today in Volt          |
+| MaxBVT   | Number    | Maximum Battery Voltage Today in Volt          |
+| YY       | Number    | Yield Yesterday in KWh                         |
+| MPY      | Number    | Maximum Power Yesterday in W                   |
+| TIFY     | Number    | Time in Float Yesterday in Min                 |
+| TIAY     | Number    | Time in Absorption Yesterday in Min            |
+| TIBY     | Number    | Time in Bulk Yesterday in Min                  |
+| MPVY     | Number    | Maximum Photovoltaik Voltage Yesterday in Volt |
+| MBCY     | Number    | Maximum Battery Current Yesterday in Ampere    |
+| MinBVY   | Number    | Minimum Battery Voltage Yesterday in Volt      |
+| MaxBVY   | Number    | Maximum Battery Voltage Yesterday in Volt      |
+| Serial   | String    | The Serial of your Device                      |
+| FwV      | Number    | Firmware Version                               |
+| PId      | Number    | Product Id                                     |
+| DI       | Number    | Device Instance                                |
+| Pn       | String    | Product Name                                   |
+| Err      | Number    | Error Code as Number                           |
 
 ## Full Example
 
