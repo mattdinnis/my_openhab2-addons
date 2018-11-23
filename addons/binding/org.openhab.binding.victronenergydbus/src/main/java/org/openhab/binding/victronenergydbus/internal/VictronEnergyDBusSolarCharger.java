@@ -12,7 +12,6 @@ import org.freedesktop.dbus.connections.impl.DBusConnection;
 import org.freedesktop.dbus.connections.impl.DBusConnection.DBusBusType;
 import org.freedesktop.dbus.exceptions.DBusException;
 import org.freedesktop.dbus.types.UInt32;
-import org.freedesktop.dbus.types.Variant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +26,6 @@ public class VictronEnergyDBusSolarCharger {
     private final Logger logger = LoggerFactory.getLogger(VictronEnergyDBusSolarCharger.class);
     private String port;
     private DBusConnection conn;
-    private Variant vData;
 
     public VictronEnergyDBusSolarCharger(String port) {
         this.port = port;
