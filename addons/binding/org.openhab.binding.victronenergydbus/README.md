@@ -1,10 +1,14 @@
 # <bindingName> Binding
 
-This binding is for monitoring MPPT Solarcharger from Victron Energy
+This binding is for monitoring MPPT Solarcharger from Victron Energy.
+
+To install vrmlogger look at [this howto](https://github.com/victronenergy/venus/wiki/raspberrypi-install-venus-packages).
 
 ## Supported Things
 
 - [VictronEnergyDBus SolarCharger](https://www.victronenergy.com/solar-charge-controllers) (Thing type `sc`)
+
+Only tested with BlueSolar MPPT 100/30
 
 ## Discovery
 
@@ -13,7 +17,7 @@ Auto-Discovery has not implemented yet.
 
 ## Thing Configuration
 
-You can configure a Thing (VictronEnergyDBus SolarCharger - `sc`) via PaperUi.
+The easiest way to configre a Thing (VictronEnergyDBus SolarCharger - `sc`) is via PaperUi. But it is also possible via Thing-File (see below).
 
 | Configuration Parameter | Required | Default | Description                                         |
 |-------------------------|----------|---------|-----------------------------------------------------|
