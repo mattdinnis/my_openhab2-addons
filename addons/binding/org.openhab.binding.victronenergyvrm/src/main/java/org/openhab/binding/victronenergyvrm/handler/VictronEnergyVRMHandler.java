@@ -36,6 +36,11 @@ import org.slf4j.LoggerFactory;
  * @author Samuel Lueckoff - Initial contribution
  */
 @NonNullByDefault
+
+// TODO: Wenn die Installation-ID (es kommt ein 403 Forbidden zurück) falsch ist, toggelt der Status unendlich.
+// Wenn ein neuer Channel-Link hinzugefügt wird. Update sofort triggern.
+// Wenn die Instance-ID falsch ist, kommt ein json "data" ohne die Werte zurück. Also werden die Werte 0. Nicht ganz so
+// schlimm, aber es gibt auch exceptions und so. Schöner wäre das abzufangen.
 public class VictronEnergyVRMHandler extends BaseThingHandler {
 
     private final Logger logger = LoggerFactory.getLogger(VictronEnergyVRMHandler.class);
@@ -55,14 +60,7 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
-        // if (channelUID.getId().equals()) {
-        // TODO: handle command
-
-        // Note: if communication with thing fails for some reason,
-        // indicate that by setting the status with detail information
-        // updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
-        // "Could not control device at IP address x.x.x.x");
-        // }
+        // Read-Only-Binding at the moment.
     }
 
     @Override
@@ -120,7 +118,10 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
             updateState(CHANNEL_YT, new DecimalType(ScS.getYT()));
             updateState(CHANNEL_YY, new DecimalType(ScS.getYY()));
         } else {
+            // Wenn keine Daten geholt werden konnten und der Status nicht bereits schon "Offline" ist, setzt Status auf
+            // Offline.
             if (!getThing().getStatus().equals(ThingStatus.OFFLINE)) {
+                logger.warn("Couldn't get data from api VRMSolarChargerSummery");
                 updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR);
             }
             this.initialize();

@@ -42,7 +42,6 @@ public class VictronEnergyDBusSolarCharger {
     }
 
     public void disconnect() {
-        // Warum auch immer, bleibt die Verbingung "offen". To Fix...
         if (this.conn.isConnected()) {
             this.conn.disconnect();
             logger.debug("Disconnected");

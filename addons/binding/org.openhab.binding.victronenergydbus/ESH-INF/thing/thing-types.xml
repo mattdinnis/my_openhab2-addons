@@ -110,22 +110,22 @@
     <channel-type id="YU">
         <item-type>Number</item-type>
         <label>Yield User</label>
-        <description>Yield User in KWh</description>
-        <state readOnly="true" pattern="%.2f KWh"></state>
+        <description>Yield User in kWh</description>
+        <state readOnly="true" pattern="%.2f kWh"></state>
     </channel-type>
     
     <channel-type id="YS">
         <item-type>Number</item-type>
         <label>Yield System</label>
-        <description>Yield System in KWh</description>
-        <state readOnly="true" pattern="%.2f KWh"></state>
+        <description>Yield System in kWh</description>
+        <state readOnly="true" pattern="%.2f kWh"></state>
     </channel-type>
     
     <channel-type id="YT">
         <item-type>Number</item-type>
         <label>Yield Today</label>
-        <description>Yield Today in KWh</description>
-        <state readOnly="true" pattern="%.2f KWh"></state>
+        <description>Yield Today in kWh</description>
+        <state readOnly="true" pattern="%.2f kWh"></state>
     </channel-type>
     
     <channel-type id="MPT">
@@ -187,8 +187,8 @@
     <channel-type id="YY">
         <item-type>Number</item-type>
         <label>Yield Yesterday</label>
-        <description>Yield Yesterday in KWh</description>
-        <state readOnly="true" pattern="%.2f KWh"></state>
+        <description>Yield Yesterday in kWh</description>
+        <state readOnly="true" pattern="%.2f kWh"></state>
     </channel-type>
     
     <channel-type id="MPY">
