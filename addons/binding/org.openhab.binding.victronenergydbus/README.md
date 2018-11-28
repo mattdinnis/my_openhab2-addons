@@ -17,7 +17,7 @@ Auto-Discovery has not implemented yet.
 
 ## Thing Configuration
 
-The easiest way to configre a Thing (VictronEnergyDBus SolarCharger - `sc`) is via PaperUi. But it is also possible via Thing-File (see below).
+The easiest way to configure a Thing (VictronEnergyDBus SolarCharger - `sc`) is via PaperUi. But it is also possible via Thing-File (see below).
 
 | Configuration Parameter | Required | Default | Description                                         |
 |-------------------------|----------|---------|-----------------------------------------------------|

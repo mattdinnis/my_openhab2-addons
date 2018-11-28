@@ -17,7 +17,7 @@ Auto-Discovery has not implemented yet.
 
 ## Thing Configuration
 
-The easiest way to configre a Thing (VictronEnergyVRM SolarCharger - `sc`) is via PaperUi. But it is also possible via Thing-File (see below).
+The easiest way to configure a Thing (VictronEnergyVRM SolarCharger - `sc`) is via PaperUi. But it is also possible via Thing-File (see below).
 
 | Configuration Parameter | Required | Default | Description                                         |
 |-------------------------|----------|---------|-----------------------------------------------------|
@@ -45,7 +45,7 @@ The correct Instance-ID you see also in [Portal](https://vrm.victronenergy.com/)
 ### victronenergyvrm.things:
 
 ```
-Thing victronenergyvrm:sc:myvrmsc [username="yourvrm@email.de"]
+Thing victronenergyvrm:sc:myvrmsc [username="yourvrm@email.de", password="securepasswd", installation-id=12345, instance-id=288]
 ```
 
 ### victronenergyvrm.items:
