@@ -1,52 +1,63 @@
 # <bindingName> Binding
 
-_Give some details about what this binding is meant for - a protocol, system, specific device._
+This binding is for monitoring MPPT Solarcharger from Victron Energy VRM API.
 
-_If possible, provide some resources like pictures, a YouTube video, etc. to give an impression of what can be done with this binding. You can place such resources into a `doc` folder next to this README.md._
+To install vrmlogger look at [this howto](https://github.com/victronenergy/venus/wiki/raspberrypi-install-venus-packages).
 
 ## Supported Things
 
-_Please describe the different supported things / devices within this section._
-_Which different types are supported, which models were tested etc.?_
-_Note that it is planned to generate some part of this based on the XML files within ```ESH-INF/thing``` of your binding._
+- [VictronEnergyVRM SolarCharger](https://www.victronenergy.com/solar-charge-controllers) (Thing type `sc`)
+
+Only tested with BlueSolar MPPT 100/30
 
 ## Discovery
 
-_Describe the available auto-discovery features here. Mention for what it works and what needs to be kept in mind when using it._
+Auto-Discovery has not implemented yet.
 
-## Binding Configuration
-
-_If your binding requires or supports general configuration settings, please create a folder ```cfg``` and place the configuration file ```<bindingId>.cfg``` inside it. In this section, you should link to this file and provide some information about the options. The file could e.g. look like:_
-
-```
-# Configuration for the Philips Hue Binding
-#
-# Default secret key for the pairing of the Philips Hue Bridge.
-# It has to be between 10-40 (alphanumeric) characters 
-# This may be changed by the user for security reasons.
-secret=EclipseSmartHome
-```
-
-_Note that it is planned to generate some part of this based on the information that is available within ```ESH-INF/binding``` of your binding._
-
-_If your binding does not offer any generic configurations, you can remove this section completely._
 
 ## Thing Configuration
 
-_Describe what is needed to manually configure a thing, either through the (Paper) UI or via a thing-file. This should be mainly about its mandatory and optional configuration parameters. A short example entry for a thing file can help!_
+The easiest way to configre a Thing (VictronEnergyVRM SolarCharger - `sc`) is via PaperUi. But it is also possible via Thing-File (see below).
 
-_Note that it is planned to generate some part of this based on the XML files within ```ESH-INF/thing``` of your binding._
+| Configuration Parameter | Required | Default | Description                                         |
+|-------------------------|----------|---------|-----------------------------------------------------|
+| username                | X        |         | Your VRM Username                                   |
+| password                | X        |         | Your VRM Password                                   |
+| installation-id         | X        |         | ID of your Installation in VRM                      |
+| instance-id             | X        |         | ID of the Instance in VRM                           |
+
+You can find your Installation-Id if you are logged in to VRM [Portal](https://vrm.victronenergy.com/) in the URL. Click on your Installation. The URL should look like [https://vrm.victronenergy.com/installation/###ID###/dashboard](https://vrm.victronenergy.com/installation/###ID###/dashboard) Between /installation/ and /dashboard should be your ID.
+
+The correct Instance-ID you see also in [Portal](https://vrm.victronenergy.com/) at Menu "Advanced" behind the title in [###ID###] for example "Solar Charger Summary [288]"
 
 ## Channels
 
-_Here you should provide information about available channel types, what their meaning is and how they can be used._
-
-_Note that it is planned to generate some part of this based on the XML files within ```ESH-INF/thing``` of your binding._
+| Channel  | Item Type | Description                                    |
+|----------|-----------|------------------------------------------------|
+| ScV      | Number    | Solarcharger Battery Voltage                   |
+| ScS      | String    | Solarcharger Charge state                      |
+| YT       | Number    | Solarcharger Yield Today                       |
+| YY       | Number    | Solarcharger Yield Yesterday                   |
+| ScW      | Number    | Solarcharger Battery Watts                     |
 
 ## Full Example
 
-_Provide a full usage example based on textual configuration files (*.things, *.items, *.sitemap)._
+### victronenergyvrm.things:
 
-## Any custom content here!
+```
+Thing victronenergyvrm:sc:myvrmsc [username="yourvrm@email.de"]
+```
 
-_Feel free to add additional sections for whatever you think should also be mentioned about your binding!_
+### victronenergyvrm.items:
+
+```
+Number ScV "Solarcharger Battery Voltage [%.2f V]" {channel="victronenergyvrm:sc:myvrmsc:ScV"}
+String ScS "Solarcharger Charge State" {channel="victronenergyvrm:sc:myvrmsc:ScS"}
+Number YT "Solarcharger Yield Today [%.2f KWh]" {channel="victronenergyvrm:sc:myvrmsc:YT"}
+Number YY "Solarcharger Yield Yesterday [%.2f KWh]" {channel="victronenergyvrm:sc:myvrmsc:YY"}
+Number ScW "Solarcharger Power [%d W]" {channel="victronenergyvrm:sc:myvrmsc:ScW"}
+```
+
+## Example Installation in my Camper
+
+I'm using this binding to monitor data of my CamperVan Solar Installation which I described [here](http://thejollyjumper.de/2018/10/18/elektrik/)

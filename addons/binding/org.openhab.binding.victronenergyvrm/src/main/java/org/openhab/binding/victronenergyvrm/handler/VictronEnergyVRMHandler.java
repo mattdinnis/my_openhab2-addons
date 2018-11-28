@@ -24,6 +24,7 @@ import org.eclipse.smarthome.core.thing.ThingStatus;
 import org.eclipse.smarthome.core.thing.ThingStatusDetail;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandler;
 import org.eclipse.smarthome.core.types.Command;
+import org.eclipse.smarthome.core.types.RefreshType;
 import org.openhab.binding.victronenergyvrm.api.VictronEnergyVRMAuth;
 import org.openhab.binding.victronenergyvrm.api.VictronEnergyVRMSolarChargerSummery;
 import org.slf4j.Logger;
@@ -37,10 +38,10 @@ import org.slf4j.LoggerFactory;
  */
 @NonNullByDefault
 
-// TODO: Wenn die Installation-ID (es kommt ein 403 Forbidden zurück) falsch ist, toggelt der Status unendlich.
-// Wenn ein neuer Channel-Link hinzugefügt wird. Update sofort triggern.
+// TODO: Wenn ein neuer Channel-Link bzw. ein Item hinzugefügt wird. Update sofort triggern.
 // Wenn die Instance-ID falsch ist, kommt ein json "data" ohne die Werte zurück. Also werden die Werte 0. Nicht ganz so
 // schlimm, aber es gibt auch exceptions und so. Schöner wäre das abzufangen.
+
 public class VictronEnergyVRMHandler extends BaseThingHandler {
 
     private final Logger logger = LoggerFactory.getLogger(VictronEnergyVRMHandler.class);
@@ -50,8 +51,12 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
     // Default Value vrmlogger on Raspberry PI ist 900
     private static final int DEFAULT_REFRESH_RATE = 900;
 
+    // avoid loops with errorcounter
+    private int errorcounter;
+
     public VictronEnergyVRMHandler(Thing thing) {
         super(thing);
+        errorcounter = 0;
 
     }
 
@@ -60,7 +65,10 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
-        // Read-Only-Binding at the moment.
+        if (command == RefreshType.REFRESH) {
+            // This should also happen at a newly linked channel also bei super.channelLinked()
+            updateData();
+        }
     }
 
     @Override
@@ -110,6 +118,8 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
         if (ScS.getSuccess()) {
             if (!getThing().getStatus().equals(ThingStatus.ONLINE)) {
                 updateStatus(ThingStatus.ONLINE);
+                logger.debug("Set Errorcounter to 0");
+                errorcounter = 0;
             }
             logger.debug("yeah! Got Data from api VRMSolarChargerSummery");
             updateState(CHANNEL_ScV, new DecimalType(ScS.getScV()));
@@ -124,7 +134,14 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
                 logger.warn("Couldn't get data from api VRMSolarChargerSummery");
                 updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR);
             }
-            this.initialize();
+            logger.debug("Increment Errorcounter.");
+            errorcounter++;
+            if (errorcounter < 3) {
+                this.initialize();
+                logger.debug("Try to initialize again. Already " + errorcounter + " times");
+            } else {
+                logger.warn("To many errors in a row. Maybe a wrong Installation ID. Please check this.");
+            }
         }
 
     }
