@@ -214,4 +214,44 @@ public class VictronEnergyDBusSolarCharger {
         return "unknown";
     }
 
+    public String getErrString() {
+        int error = getErr();
+        if (error == 0) {
+            return "No error";
+        } else if (error == 1) {
+            return "Battery temperature too high";
+        } else if (error == 2) {
+            return "Battery voltage too high";
+        } else if (error == 3) {
+            return "Battery temperature sensor miswired (+)";
+        } else if (error == 4) {
+            return "Battery temperature sensor miswired (-)";
+        } else if (error == 5) {
+            return "Battery temperature sensor disconnected";
+        } else if (error == 6) {
+            return "Battery voltage sense miswired (+)";
+        } else if (error == 7) {
+            return "Battery voltage sense miswired (-)";
+        } else if (error == 8) {
+            return "Battery voltage sense disconnected";
+        } else if (error == 9) {
+            return "Battery voltage wire losses too high";
+        } else if (error == 17) {
+            return "Charger temperature too high";
+        } else if (error == 18) {
+            return "Charger over-current";
+        } else if (error == 19) {
+            return "Charger current polarity reversed";
+        } else if (error == 20) {
+            return "Bulk time limit reached";
+        } else if (error == 22) {
+            return "Charger temperature sensor miswired";
+        } else if (error == 23) {
+            return "Charger temperature sensor disconnected";
+        } else if (error == 34) {
+            return "Input current too high";
+        }
+        return "unknown";
+    }
+
 }

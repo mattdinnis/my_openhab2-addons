@@ -59,6 +59,7 @@ public class VictronEnergyDBusBindingConstants {
     public static final String CHANNEL_DEVICE_INSTANCE = "DI";
     public static final String CHANNEL_PRODUCTNAME = "Pn";
     public static final String CHANNEL_ERROR = "Err";
+    public static final String CHANNEL_ERROR_STRING = "ErrStr";
 
     // Config Params
     public static final String PORT = "port";

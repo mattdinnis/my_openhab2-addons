@@ -43,6 +43,7 @@
 			<channel id="DI" typeId="DI" />
 			<channel id="Pn" typeId="Pn" />
 			<channel id="Err" typeId="Err" />
+			<channel id="ErrStr" typeId="ErrStr" />
 		</channels>
 
         <config-description-ref uri="thing-type:dbussc:set" />
@@ -287,6 +288,13 @@
         <label>Error Code</label>
         <description>Error Code as Number</description>
         <state readOnly="true" pattern="%d"></state>
+    </channel-type>
+    
+    <channel-type id="ErrStr">
+        <item-type>String</item-type>
+        <label>Error String</label>
+        <description>Error of the Device as String</description>
+        <state readOnly="true"></state>
     </channel-type>
 
 </thing:thing-descriptions>

@@ -106,6 +106,7 @@ public class VictronEnergyDBusHandler extends BaseThingHandler {
         updateState(CHANNEL_DEVICE_INSTANCE, new DecimalType(this.sc.getDI()));
         updateState(CHANNEL_PRODUCTNAME, new StringType(this.sc.getPn()));
         updateState(CHANNEL_ERROR, new DecimalType(this.sc.getErr()));
+        updateState(CHANNEL_ERROR_STRING, new StringType(this.sc.getErrString()));
         sc.disconnect();
     }
 

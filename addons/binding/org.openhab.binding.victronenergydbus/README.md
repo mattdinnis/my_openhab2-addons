@@ -59,6 +59,7 @@ The easiest way to configure a Thing (VictronEnergyDBus SolarCharger - `sc`) is 
 | DI       | Number    | Device Instance                                |
 | Pn       | String    | Product Name                                   |
 | Err      | Number    | Error Code as Number                           |
+| ErrStr   | String    | Error of the Device as String                  |
 
 ## Full Example
 
@@ -104,6 +105,7 @@ Number PId "Product Id [%d]" {channel="victronenergydbus:sc:mysc:PId"}
 Number DI "Device Instance [%d]" {channel="victronenergydbus:sc:mysc:DI"}
 String Pn "Product Name" {channel="victronenergydbus:sc:mysc:Pn"}
 Number Err "Error Code [%d]" {channel="victronenergydbus:sc:mysc:Err"}
+String ErrStr "Error" {channel="victronenergydbus:sc:mysc:ErrStr"}
 ```
 
 ## Example Installation in my Camper
