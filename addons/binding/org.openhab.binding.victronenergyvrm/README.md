@@ -1,7 +1,7 @@
 # <bindingName> Binding
 
-This binding is for monitoring MPPT Solarcharger from Victron Energy VRM API.
-
+This binding is for monitoring MPPT Solarcharger from Victron Energy VRM. So, before you can use this binding, you need a installation at https://vrm.victronenergy.com/ This could be done by [Color Control GX](https://www.victronenergy.com/panel-systems-remote-monitoring/color-control), [Venus GX](https://www.victronenergy.com/panel-systems-remote-monitoring/venus-gx) or also a Raspberry Pi with some special software.
+If you have a usual Raspbian as OS on your Pi running, so you can install the vrmlogger to provide your data from your Solarcharger to VRM.
 To install vrmlogger look at [this howto](https://github.com/victronenergy/venus/wiki/raspberrypi-install-venus-packages).
 
 ## Supported Things
@@ -61,3 +61,4 @@ Number ScW "Solarcharger Power [%d W]" {channel="victronenergyvrm:sc:myvrmsc:ScW
 ## Example Installation in my Camper
 
 I'm using this binding to monitor data of my CamperVan Solar Installation which I described [here](http://thejollyjumper.de/2018/10/18/elektrik/)
+If you have any question you can drop me a comment at this page.

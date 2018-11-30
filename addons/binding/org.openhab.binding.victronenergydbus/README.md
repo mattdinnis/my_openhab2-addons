@@ -1,8 +1,7 @@
 # <bindingName> Binding
 
-This binding is for monitoring MPPT Solarcharger from Victron Energy.
-
-To install vrmlogger look at [this howto](https://github.com/victronenergy/venus/wiki/raspberrypi-install-venus-packages).
+This binding is for monitoring MPPT Solarcharger from Victron Energy. The Solarcharger should be connected to your Raspberry Pi. The communication is over D-BUS. One way to make this communication possible, you can install vrmlogger.
+To do so, look at [this howto](https://github.com/victronenergy/venus/wiki/raspberrypi-install-venus-packages).
 
 ## Supported Things
 
@@ -109,4 +108,4 @@ Number Err "Error Code [%d]" {channel="victronenergydbus:sc:mysc:Err"}
 
 ## Example Installation in my Camper
 
-I'm using this binding in my CamperVan Solar Installation which I described [here](http://thejollyjumper.de/2018/10/18/elektrik/)
+I'm using this binding in my CamperVan Solar Installation which I described [here](http://thejollyjumper.de/2018/10/18/elektrik/) If you have any question you can drop me a comment at this page.
