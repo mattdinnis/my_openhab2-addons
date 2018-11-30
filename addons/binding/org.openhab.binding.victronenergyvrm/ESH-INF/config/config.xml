@@ -30,6 +30,7 @@
                 The Device Instance ID. You find it in your device list. 
             </description>
             <required>true</required>
+            <default>288</default>
             <advanced>false</advanced>
         </parameter>
     </config-description>

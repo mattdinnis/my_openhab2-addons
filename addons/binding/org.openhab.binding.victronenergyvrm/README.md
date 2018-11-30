@@ -24,7 +24,7 @@ The easiest way to configure a Thing (VictronEnergyVRM SolarCharger - `sc`) is v
 | username                | X        |         | Your VRM Username                                   |
 | password                | X        |         | Your VRM Password                                   |
 | installation-id         | X        |         | ID of your Installation in VRM                      |
-| instance-id             | X        |         | ID of the Instance in VRM                           |
+| instance-id             | X        | 288     | ID of the Instance in VRM                           |
 
 You can find your Installation-Id if you are logged in to VRM [Portal](https://vrm.victronenergy.com/) in the URL. Click on your Installation. The URL should look like [https://vrm.victronenergy.com/installation/###ID###/dashboard](https://vrm.victronenergy.com/installation/###ID###/dashboard) Between /installation/ and /dashboard should be your ID.
 

@@ -38,10 +38,6 @@ import org.slf4j.LoggerFactory;
  */
 @NonNullByDefault
 
-// TODO: Wenn ein neuer Channel-Link bzw. ein Item hinzugefügt wird. Update sofort triggern.
-// Wenn die Instance-ID falsch ist, kommt ein json "data" ohne die Werte zurück. Also werden die Werte 0. Nicht ganz so
-// schlimm, aber es gibt auch exceptions und so. Schöner wäre das abzufangen.
-
 public class VictronEnergyVRMHandler extends BaseThingHandler {
 
     private final Logger logger = LoggerFactory.getLogger(VictronEnergyVRMHandler.class);
