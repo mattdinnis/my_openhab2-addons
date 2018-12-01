@@ -33,6 +33,7 @@ public class VictronEnergyVRMBindingConstants {
     public static final String CHANNEL_YT = "YT";
     public static final String CHANNEL_YY = "YY";
     public static final String CHANNEL_ScW = "ScW";
+    public static final String CHANNEL_secondsAgo = "secondsAgo";
 
     // Config Params
     public static final String USERNAME = "username";

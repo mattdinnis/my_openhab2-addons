@@ -42,6 +42,8 @@ public class VictronEnergyVRMSolarChargerSummery {
     private String YT;
     private String YY;
     private String ScW;
+    private Boolean hasOldData;
+    private String secondsAgo;
     private Boolean success;
 
     public VictronEnergyVRMSolarChargerSummery(String baseUrl, BigDecimal instId, BigDecimal instance) {
@@ -94,8 +96,16 @@ public class VictronEnergyVRMSolarChargerSummery {
                 JsonObject joData = jo.getAsJsonObject("records").getAsJsonObject("data");
                 Set<Map.Entry<String, JsonElement>> entries = joData.entrySet();
                 for (Map.Entry<String, JsonElement> entry : entries) {
-                    if (!entry.getKey().equals("hasOldData") && !entry.getKey().equals("secondsAgo")) {
-                        logger.debug("ScS json DATA-ID: " + entry.getKey());
+                    if (entry.getKey().equals("hasOldData")) {
+                        hasOldData = entry.getValue().getAsBoolean();
+                        logger.debug("Has old Data?: " + hasOldData.toString());
+                    } else if (entry.getKey().equals("secondsAgo")) {
+                        JsonObject joEntry = joData.getAsJsonObject(entry.getKey());
+                        secondsAgo = joEntry.get("value").toString();
+                        // Entferne " am Anfang und am Ende
+                        secondsAgo = secondsAgo.substring(1, secondsAgo.length() - 1);
+                        logger.debug("Seconds ago: " + secondsAgo);
+                    } else {
                         JsonObject joEntry = joData.getAsJsonObject(entry.getKey());
                         String entryCode = joEntry.get("code").toString();
                         // Entferne " am Anfang und Ende des token
@@ -180,6 +190,14 @@ public class VictronEnergyVRMSolarChargerSummery {
 
     public String getYY() {
         return this.YY;
+    }
+
+    public Boolean getHasOldData() {
+        return this.hasOldData;
+    }
+
+    public String getSecondsAgo() {
+        return this.secondsAgo;
     }
 
 }

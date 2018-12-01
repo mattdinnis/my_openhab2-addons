@@ -14,6 +14,7 @@
 			<channel id="YT" typeId="YT"/>
 			<channel id="YY" typeId="YY"/>
 			<channel id="ScW" typeId="ScW"/>
+			<channel id="secondsAgo" typeId="secondsAgo"/>
 		</channels>
 		<config-description-ref uri="thing-type:sc:set" />
 	</thing-type>
@@ -68,6 +69,13 @@
         <label>Alarmcount</label>
         <description>Count of active Alarms</description>
         <state readOnly="true" pattern="%d"></state>
+    </channel-type>
+    
+    <channel-type id="secondsAgo">
+        <item-type>Number</item-type>
+        <label>Seconds Ago</label>
+        <description>Time in Seconds how long the last update was ago.</description>
+        <state readOnly="true" pattern="%d s"></state>
     </channel-type>
 
 </thing:thing-descriptions>

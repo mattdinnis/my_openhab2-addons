@@ -32,13 +32,14 @@ The correct Instance-ID you see also in [Portal](https://vrm.victronenergy.com/)
 
 ## Channels
 
-| Channel  | Item Type | Description                                    |
-|----------|-----------|------------------------------------------------|
-| ScV      | Number    | Solarcharger Battery Voltage                   |
-| ScS      | String    | Solarcharger Charge state                      |
-| YT       | Number    | Solarcharger Yield Today                       |
-| YY       | Number    | Solarcharger Yield Yesterday                   |
-| ScW      | Number    | Solarcharger Battery Watts                     |
+| Channel    | Item Type | Description                                       |
+|------------|-----------|---------------------------------------------------|
+| ScV        | Number    | Solarcharger Battery Voltage                      |
+| ScS        | String    | Solarcharger Charge state                         |
+| YT         | Number    | Solarcharger Yield Today                          |
+| YY         | Number    | Solarcharger Yield Yesterday                      |
+| ScW        | Number    | Solarcharger Battery Watts                        |
+| secondsAgo | Number    | Time in Seconds how long the last update was ago. |
 
 ## Full Example
 
@@ -56,6 +57,7 @@ String ScS "Solarcharger Charge State" {channel="victronenergyvrm:sc:myvrmsc:ScS
 Number YT "Solarcharger Yield Today [%.2f KWh]" {channel="victronenergyvrm:sc:myvrmsc:YT"}
 Number YY "Solarcharger Yield Yesterday [%.2f KWh]" {channel="victronenergyvrm:sc:myvrmsc:YY"}
 Number ScW "Solarcharger Power [%d W]" {channel="victronenergyvrm:sc:myvrmsc:ScW"}
+Number secondsAgo "Seconds Ago [%d s]" {channel="victronenergyvrm:sc:myvrmsc:secondsAgo"}
 ```
 
 ## Example Installation in my Camper

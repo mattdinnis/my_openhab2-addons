@@ -89,7 +89,7 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
         if (token != null) {
             updateStatus(ThingStatus.ONLINE);
             logger.debug("Login successfully");
-            logger.debug("Here is the token: " + token);
+            // logger.debug("Here is the token: " + token);
             pollingJob = scheduler.scheduleWithFixedDelay(this::updateData, 0, DEFAULT_REFRESH_RATE, TimeUnit.SECONDS);
         }
 
@@ -123,6 +123,7 @@ public class VictronEnergyVRMHandler extends BaseThingHandler {
             updateState(CHANNEL_ScW, new DecimalType(ScS.getScW()));
             updateState(CHANNEL_YT, new DecimalType(ScS.getYT()));
             updateState(CHANNEL_YY, new DecimalType(ScS.getYY()));
+            updateState(CHANNEL_secondsAgo, new DecimalType(ScS.getSecondsAgo()));
         } else {
             // Wenn keine Daten geholt werden konnten und der Status nicht bereits schon "Offline" ist, setzt Status auf
             // Offline.
