@@ -2,6 +2,15 @@
 
 This binding is for monitoring MPPT Solarcharger from Victron Energy. The Solarcharger should be connected to your Raspberry Pi. The communication is over D-BUS. One way to make this communication possible, you can install vrmlogger.
 To do so, look at [this howto](https://github.com/victronenergy/venus/wiki/raspberrypi-install-venus-packages).
+To allow the user openhab the access via dbus to com.victronenergy edit the file `/etc/dbus-1/system.d/com.victronenergy.vedirect.conf` and add the follwing configuration between `<busconfig> </busconfig>`
+
+```
+        <policy user="openhab">
+                <allow own_prefix="com.victronenergy"/>
+                <allow send_type="method_call"/>
+        </policy>
+
+```
 
 ## Supported Things
 
